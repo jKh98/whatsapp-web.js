@@ -194,7 +194,7 @@ class Client extends EventEmitter {
             this._qrRefreshInterval = undefined;
         }
 
-        await page.evaluate(new Function('moduleRaid', ExposeStore.toString()), {moduleRaid: moduleRaid.toString()});
+        await page.evaluate(ExposeStore, moduleRaid.toString());
 
         // Get session tokens
         const localStorage = JSON.parse(
